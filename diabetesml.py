@@ -1,10 +1,7 @@
-from flask import Flask ,request, jsonify ,redirect, render_template
+from flask import Flask ,request, jsonify , render_template
 import pandas as pd
 from sklearn.externals import joblib
-import json, os
-from src.preparation import modelCreation as md
-import requests
-from werkzeug.utils import secure_filename
+import os
 
 app = Flask(__name__) 
 # Directory to upload data and save model
@@ -41,7 +38,7 @@ def predict():
     inputData.append(float(request.form['BMI']))
     inputData.append(float(request.form['DiabetesPedigree']))
     inputData.append(int(float(request.form['Age'])))
-    output_data = dataPrediction(inputData,PatientID)
+    output_data = dataPrediction(inputData)
     return jsonify(output_data)     #returning in form of json
 
 def dataPrediction(inputdata):
@@ -57,4 +54,4 @@ def dataPrediction(inputdata):
         return output_data  #returning output data as dictionary
 
 if __name__ =='__main__':  
-    app.run(debug = False, host = "0.0.0.0", port = 9000)
+    app.run()
