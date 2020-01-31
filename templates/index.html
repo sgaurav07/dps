@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Exo|Merriweather&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Diabetes Prediction System</title>
+    <style>
+        .input-md::placeholder {
+            color: rgb(223, 217, 217);
+        }
+
+        * {
+            font-family: 'Exo', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <legend class="text-center">Diabetes Prediction using Machine Learning</legend>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="d-flex justify-content-between col-md-12">
+                <div class="d-flex pt-3 col-md-6 col-sm-12"
+                    style=" border: 1px solid  rgb(223, 216, 216); justify-content: space-evenly; ;border-radius: 15px;">
+                    <form class="form-horizontal" method="POST" action="/predict">
+                        <fieldset>
+                            <!-- Form Name -->
+                            <legend class="text-center">Your Health Record</legend>
+                            <hr>
+                            <!-- Text input-->
+                            <div class="form-group d-flex justify-content-between">
+                                <label class="col-md-4 control-label" for="Pregnancies">Pregnancies</label>
+                                <div class="col-md-8">
+                                    <input id="Pregnancies" name="Pregnancies" type="text" placeholder="Month"
+                                        class="form-control input-md" required="" data-bind="value:replyNumber">
+                                    <small id="emailHelp" class="form-text text-muted">Your Pregnancies month: Zero(0)
+                                        for
+                                        Males</small>
+                                </div>
+                            </div>
+
+                            <!-- Text input-->
+                            <div class="form-group d-flex justify-content-between">
+                                <label class="col-md-4 control-label" for="PlasmaGlucose">Plasma Glucose</label>
+                                <div class="col-md-8">
+                                    <input id="PlasmaGlucose" name="PlasmaGlucose" type="text"
+                                        placeholder="Your Plasma Glucose Count" class="form-control input-md"
+                                        required="" data-bind="value:replyNumber">
+                                    <small id="emailHelp" class="form-text text-muted">Your Plasma Glucose Count</small>
+                                </div>
+                            </div>
+
+                            <!-- Text input-->
+                            <div class="form-group d-flex justify-content-between">
+                                <label class="col-md-4 control-label" for="DiastolicBloodPressure">Diastolic Blood
+                                    Pressure</label>
+                                <div class="col-md-8">
+                                    <input id="DiastolicBloodPressure" name="DiastolicBloodPressure" type="text"
+                                        placeholder="Diastolic Blood Pressure" class="form-control input-md"
+                                        required="" data-bind="value:replyNumber">
+                                    <small id="emailHelp" class="form-text text-muted">Your Diastolic Blood Pressure
+                                        Count</small>
+                                </div>
+                            </div>
+
+                            <!-- Text input-->
+                            <div class="form-group d-flex justify-content-between">
+                                <label class="col-md-4 control-label" for="TricepsThickness">Triceps Thickness</label>
+                                <div class="col-md-8">
+                                    <input id="TricepsThickness" name="TricepsThickness" type="text"
+                                        placeholder="Triceps Thickness" class="form-control input-md" required="" data-bind="value:replyNumber">
+                                    <small id="emailHelp" class="form-text text-muted">Your Triceps Thickness
+                                        Count</small>
+                                </div>
+                            </div>
+
+                            <!-- Text input-->
+                            <div class="form-group d-flex justify-content-between">
+                                <label class="col-md-4 control-label" for="SerumInsulin">Serum Insulin</label>
+                                <div class="col-md-8">
+                                    <input id="SerumInsulin" name="SerumInsulin" type="text" placeholder="Serum Insulin"
+                                        class="form-control input-md" required="" data-bind="value:replyNumber">
+                                    <small id="emailHelp" class="form-text text-muted">Your Serum Insulincount</small>
+                                </div>
+                            </div>
+
+                            <!-- Text input-->
+                            <div class="form-group d-flex justify-content-between">
+                                <label class="col-md-4 control-label" for="BMI">Body Mass Index(BMI)</label>
+                                <div class="col-md-8">
+                                    <input id="BMI" name="BMI" type="text" placeholder="BMI"
+                                        class="form-control input-md" required="" data-bind="value:replyNumber">
+                                    <small id="emailHelp" class="form-text text-muted">Your Body Mass Index
+                                        Count</small>
+                                </div>
+                            </div>
+
+                            <!-- Text input-->
+                            <div class="form-group d-flex justify-content-between">
+                                <label class="col-md-4 control-label" for="DiabetesPedigree">Diabetes Pedigree</label>
+                                <div class="col-md-8">
+                                    <input id="DiabetesPedigree" name="DiabetesPedigree" type="text"
+                                        placeholder="Diabetes Pedigree" class="form-control input-md" required="" data-bind="value:replyNumber">
+                                    <small id="emailHelp" class="form-text text-muted">Your Diabetes Pedigree
+                                        Count</small>
+                                </div>
+                            </div>
+
+                            <!-- Text input-->
+                            <div class="form-group d-flex justify-content-between">
+                                <label class="col-md-4 control-label" for="Age">Age</label>
+                                <div class="col-md-8">
+                                    <input id="Age" name="Age" type="text" placeholder="Age"
+                                        class="form-control input-md" required="" data-bind="value:replyNumber">
+                                    <small id="emailHelp" class="form-text text-muted">Your Age</small>
+                                </div>
+                            </div>
+
+                            <!-- Button (Double) -->
+                            <div class="form-group">
+                                <div class="d-flex justify-content-between">
+                                    <button type="submit" id="btnSubmit" name="btnSubmit"
+                                        class="btn btn-success">Submit</button>
+                                    <button type="reset" id="btnReset" name="btnReset"
+                                        class="btn btn-danger">Reset</button>
+                                </div>
+                            </div>
+
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="d-flex pt-3 justify-content-around col-md-6 col-sm-12"
+                    style="border-radius: 15px;border: 1px solid rgb(223, 216, 216); ">
+                    <div>
+                        <legend class="text-center">Model Details</legend>
+                        <hr>
+
+                        <fieldset>
+                            <div class="d-flex justify-content-around">
+                                <div class="col-md-6 form-group">
+                                    <label class="control-label" for="textinput">Model Name:</label>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label class="control-label" for="textinput">scikit-learn Adaboost</label>
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-around">
+                                <div class="col-md-10 form-group">
+                                    <label class="control-label" for="textinput">Training set accuracy:</label>
+                                </div>
+                                <div class="col-md-2 form-group">
+                                    <label class="control-label" for="textinput">0.953</label>
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-around">
+                                <div class="col-md-10 form-group">
+                                    <label class="control-label" for="textinput">Test set accuracy:</label>
+                                </div>
+                                <div class="col-md-2 form-group">
+                                    <label class="control-label" for="textinput">0.946</label>
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-around">
+                                <div class="col-md-10 form-group">
+                                    <label class="control-label" for="textinput">Accuracy Score :</label>
+                                </div>
+                                <div class="col-md-2 form-group">
+                                    <label class="control-label" for="textinput">0.9457</label>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-around">
+                                <div class="col-md-10 form-group">
+                                    <label class="control-label" for="textinput">Accuracy :</label>
+                                </div>
+                                <div class="col-md-2 form-group">
+                                    <label class="control-label" for="textinput">94.58%</label>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-around">
+                                <div class="col-md-10 form-group">
+                                    <label class="control-label" for="textinput">AUC :</label>
+                                </div>
+                                <div class="col-md-2 form-group">
+                                    <label class="control-label" for="textinput">0.987</label>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-around">
+                                <div class="col-md-10 form-group">
+                                    <label class="control-label" for="textinput">True Negative :</label>
+                                </div>
+                                <div class="col-md-2 form-group">
+                                    <label class="control-label" for="textinput">2866</label>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-around">
+                                <div class="col-md-10 form-group">
+                                    <label class="control-label" for="textinput">False Positive :</label>
+                                </div>
+                                <div class="col-md-2 form-group">
+                                    <label class="control-label" for="textinput">120</label>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-around">
+                                <div class="col-md-10 form-group">
+                                    <label class="control-label" for="textinput">False Negative :</label>
+                                </div>
+                                <div class="col-md-2 form-group">
+                                    <label class="control-label" for="textinput">124</label>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-around">
+                                <div class="col-md-10 form-group">
+                                    <label class="control-label" for="textinput">True Positive :</label>
+                                </div>
+                                <div class="col-md-2 form-group">
+                                    <label class="control-label" for="textinput">1390</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12 control-label" for="textinput">Report : </label>
+                                <style type="text/css">
+                                    .tg {
+                                        border-collapse: collapse;
+                                        border-spacing: 0;
+                                    }
+
+                                    .tg td {
+                                        font-family: Arial, sans-serif;
+                                        font-size: 14px;
+                                        padding: 10px 5px;
+                                        border-style: solid;
+                                        border-width: 1px;
+                                        overflow: hidden;
+                                        word-break: normal;
+                                        border-color: black;
+                                    }
+
+                                    .tg th {
+                                        font-family: Arial, sans-serif;
+                                        font-size: 14px;
+                                        font-weight: normal;
+                                        padding: 10px 5px;
+                                        border-style: solid;
+                                        border-width: 1px;
+                                        overflow: hidden;
+                                        word-break: normal;
+                                        border-color: black;
+                                    }
+
+                                    .tg .tg-0lax {
+                                        text-align: left;
+                                        vertical-align: top
+                                    }
+                                </style>
+                                <!--Table-->
+                                <table id="tablePreview" class="table table-hover table-sm">
+                                    <!--Table head-->
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Precision</th>
+                                            <th>Recall</th>
+                                            <th>f1-Score</th>
+                                            <th>Support</th>
+                                        </tr>
+                                    </thead>
+                                    <!--Table head-->
+                                    <!--Table body-->
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">0</th>
+                                            <td>0.96</td>
+                                            <td>0.96</td>
+                                            <td>0.96</td>
+                                            <td>2986</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>0.92</td>
+                                            <td>0.92</td>
+                                            <td>0.92</td>
+                                            <td>1514</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">accuracy</th>
+                                            <td></td>
+                                            <td></td>
+                                            <td>0.95</td>
+                                            <td>4500</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">macro avg</th>
+                                            <td>0.94</td>
+                                            <td>0.94</td>
+                                            <td>0.94</td>
+                                            <td>4500</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">weighted avg</th>
+                                            <td>0.95</td>
+                                            <td>0.95</td>
+                                            <td>0.95</td>
+                                            <td>4500</td>
+                                        </tr>
+                                    </tbody>
+                                    <!--Table body-->
+                                </table>
+                                <!--Table-->
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQ
+        uery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
